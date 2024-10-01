@@ -3,12 +3,30 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::view('/inicio', 'home');
-
-Route::get('/fecha', function () {
-    $fecha = explode('/', date('d/m/Y'));
+/* Route::get('/fecha', function () {
+    $fecha = explode('/', date('l/d/m/Y'));
     return view('fecha', ['fecha' => $fecha]);
+}); */
+
+/* Route::get('/fecha', function () {
+    $dia = date('l');
+    $numero = date('d');
+    $mes = date('m');
+    $anio = date('Y');
+    $fecha = compact('dia', "numero", "mes", "anio");
+    return view('fecha', ['fecha' => $fecha]);
+}); */
+
+Route::get('/fecha', function() {
+    $dia = date('l');
+    $numero = date('d');
+    $mes = date('m');
+    $anio = date('Y');
+    $fecha = compact('dia', "numero", "mes", "anio");
+    return view('fecha')->with('fecha', $fecha);
 });
+
+Route::view('/inicio', 'home');
 
 Route::get('/', function () {
     return view('welcome');
