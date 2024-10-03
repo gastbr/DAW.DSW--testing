@@ -1,1 +1,1 @@
-<img src="/public/build/assets/error-404.jpg" alt="Imagen de error 404.">
+<img src="{{asset('error-404.jpg')}}" alt="Imagen de error 404.">
